@@ -138,7 +138,7 @@ p {
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
-    padding: 12px 0;
+    padding: 10px 0;
     z-index: 50;
     background: rgba(0, 0, 0, 0.85); /* Fondo más oscuro para fusionar el cuadro negro del logo */
     backdrop-filter: blur(16px);
@@ -156,7 +156,7 @@ p {
     gap: 12px;
 }
 .logo-img {
-    height: 55px; /* Tamaño optimizado para que no ocupe demasiado espacio vertical ni tape el contenido */
+    height: 75px; /* Logo más grande pero proporcional sin tapar contenido */
     width: auto;
     object-fit: contain;
     mix-blend-mode: screen; /* Esto elimina el fondo negro de la imagen */
@@ -500,13 +500,13 @@ p {
 }
 @media (max-width: 768px) {
     .navbar {
-        padding: 8px 0;
+        padding: 6px 0;
     }
     .logo-img {
-        height: 44px;
+        height: 60px;
     }
     .hero {
-        padding-top: 110px;
+        padding-top: 115px;
         padding-bottom: 40px;
         gap: 40px;
     }
@@ -551,13 +551,13 @@ p {
 }
 @media (max-width: 480px) {
     .navbar {
-        padding: 6px 0;
+        padding: 4px 0;
     }
     .logo-img {
-        height: 40px;
+        height: 52px;
     }
     .hero {
-        padding-top: 100px;
+        padding-top: 105px;
     }
     .badge {
         font-size: 0.7rem;
