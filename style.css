@@ -138,7 +138,7 @@ p {
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
-    padding: 10px 0;
+    padding: 8px 0;
     z-index: 50;
     background: rgba(0, 0, 0, 0.85); /* Fondo más oscuro para fusionar el cuadro negro del logo */
     backdrop-filter: blur(16px);
@@ -156,7 +156,7 @@ p {
     gap: 12px;
 }
 .logo-img {
-    height: 75px; /* Logo más grande pero proporcional sin tapar contenido */
+    height: 100px; /* Logos ajustados a 100px */
     width: auto;
     object-fit: contain;
     mix-blend-mode: screen; /* Esto elimina el fondo negro de la imagen */
@@ -186,7 +186,7 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
-    padding-top: 140px; /* Espacio suficiente para que el navbar no tape el badge */
+    padding-top: 160px; /* Espacio suficiente para logo de 100px */
 }
 .hero-content, .hero-visual {
     min-width: 0;
@@ -477,7 +477,7 @@ p {
     .hero, .audience {
         grid-template-columns: 1fr;
         text-align: center;
-        padding-top: 130px;
+        padding-top: 155px;
     }
     .hero-ctas {
         justify-content: center;
@@ -503,10 +503,10 @@ p {
         padding: 6px 0;
     }
     .logo-img {
-        height: 60px;
+        height: 100px;
     }
     .hero {
-        padding-top: 115px;
+        padding-top: 155px;
         padding-bottom: 40px;
         gap: 40px;
     }
@@ -554,10 +554,10 @@ p {
         padding: 4px 0;
     }
     .logo-img {
-        height: 52px;
+        height: 100px;
     }
     .hero {
-        padding-top: 105px;
+        padding-top: 150px;
     }
     .badge {
         font-size: 0.7rem;
