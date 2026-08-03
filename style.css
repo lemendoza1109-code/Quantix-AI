@@ -187,6 +187,9 @@ p {
     align-items: center;
     padding-top: 180px; /* Espacio extra para que la barra no tape el texto */
 }
+.hero-content, .hero-visual {
+    min-width: 0;
+}
 .badge {
     display: inline-block;
     max-width: 100%;
@@ -292,6 +295,9 @@ p {
     grid-template-columns: 1.2fr 0.8fr;
     gap: 80px;
     align-items: center;
+}
+.audience-content, .audience-visual {
+    min-width: 0;
 }
 .audience-lists {
     display: grid;
