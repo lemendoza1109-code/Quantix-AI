@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]:not(#open-form-btn)').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
@@ -73,5 +73,66 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
         window.requestAnimationFrame(step);
+    }
+
+    // Lead form modal
+    const WEBHOOK_URL = 'https://eduardo555.app.n8n.cloud/webhook/quantix-lead-form';
+    const overlay = document.getElementById('form-modal-overlay');
+    const openBtn = document.getElementById('open-form-btn');
+    const closeBtn = document.getElementById('close-form-btn');
+    const form = document.getElementById('lead-form');
+    const submitBtn = document.getElementById('lead-form-submit');
+    const statusEl = document.getElementById('lead-form-status');
+
+    function openModal(e) {
+        if (e) e.preventDefault();
+        statusEl.textContent = '';
+        statusEl.className = 'form-status';
+        overlay.classList.add('open');
+        overlay.scrollTop = 0;
+        const modal = overlay.querySelector('.form-modal');
+        if (modal) modal.scrollTop = 0;
+    }
+
+    function closeModal() {
+        overlay.classList.remove('open');
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (overlay) {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeModal();
+        });
+    }
+
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            statusEl.textContent = '';
+            statusEl.className = 'form-status';
+
+            const data = Object.fromEntries(new FormData(form).entries());
+
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                statusEl.textContent = '¡Gracias! Te contactaremos muy pronto.';
+                statusEl.className = 'form-status success';
+                form.reset();
+                setTimeout(closeModal, 2000);
+            } catch (err) {
+                statusEl.textContent = 'Hubo un error al enviar. Intenta de nuevo o escríbenos por WhatsApp.';
+                statusEl.className = 'form-status error';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar';
+            }
+        });
     }
 });
