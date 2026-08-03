@@ -138,10 +138,11 @@ p {
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
-    padding: 20px 0;
+    padding: 12px 0;
     z-index: 50;
     background: rgba(0, 0, 0, 0.85); /* Fondo más oscuro para fusionar el cuadro negro del logo */
     backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
 }
 .nav-container {
@@ -155,7 +156,7 @@ p {
     gap: 12px;
 }
 .logo-img {
-    height: 130px; /* Tamaño adaptado a la nueva imagen recortada para que se vea grande sin tapar nada */
+    height: 55px; /* Tamaño optimizado para que no ocupe demasiado espacio vertical ni tape el contenido */
     width: auto;
     object-fit: contain;
     mix-blend-mode: screen; /* Esto elimina el fondo negro de la imagen */
@@ -185,7 +186,7 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
-    padding-top: 180px; /* Espacio extra para que la barra no tape el texto */
+    padding-top: 140px; /* Espacio suficiente para que el navbar no tape el badge */
 }
 .hero-content, .hero-visual {
     min-width: 0;
@@ -476,7 +477,7 @@ p {
     .hero, .audience {
         grid-template-columns: 1fr;
         text-align: center;
-        padding-top: 160px;
+        padding-top: 130px;
     }
     .hero-ctas {
         justify-content: center;
@@ -498,8 +499,14 @@ p {
     }
 }
 @media (max-width: 768px) {
+    .navbar {
+        padding: 8px 0;
+    }
+    .logo-img {
+        height: 44px;
+    }
     .hero {
-        padding-top: 140px;
+        padding-top: 110px;
         padding-bottom: 40px;
         gap: 40px;
     }
@@ -539,6 +546,23 @@ p {
     .badge {
         font-size: 0.75rem;
         padding: 8px 14px;
+        margin-bottom: 24px;
+    }
+}
+@media (max-width: 480px) {
+    .navbar {
+        padding: 6px 0;
+    }
+    .logo-img {
+        height: 40px;
+    }
+    .hero {
+        padding-top: 100px;
+    }
+    .badge {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+        letter-spacing: 0.03em;
     }
 }
 
