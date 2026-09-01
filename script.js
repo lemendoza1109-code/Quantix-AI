@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const text = element.innerText;
                 if(text.includes('10x')) {
                     animateValue(element, 0, 10, 2000, 'x');
-                } else if (text.includes('98%')) {
-                    animateValue(element, 0, 98, 2000, '%');
-                } else if (text.includes('+40%')) {
-                    animateValue(element, 0, 40, 2000, '%', '+');
+                } else if (text.includes('-30%')) {
+                    animateValue(element, 0, 30, 2000, '%', '-');
+                } else if (text.includes('+25%')) {
+                    animateValue(element, 0, 25, 2000, '%', '+');
                 }
                 statsObserver.unobserve(element);
             }
