@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e) e.preventDefault();
         statusEl.textContent = '';
         statusEl.className = 'form-status';
+        if (form) form.reset();
         overlay.classList.add('open');
         overlay.scrollTop = 0;
         const modal = overlay.querySelector('.form-modal');
