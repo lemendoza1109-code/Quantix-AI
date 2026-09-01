@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Lead form modal
-    const WEBHOOK_URL = 'https://eduardo555.app.n8n.cloud/webhook/quantix-lead-form';
+    const WEBHOOK_URL = 'https://eduardo55.app.n8n.cloud/webhook/quantix-lead-form';
     const overlay = document.getElementById('form-modal-overlay');
     const openBtn = document.getElementById('open-form-btn');
     const closeBtn = document.getElementById('close-form-btn');
@@ -117,11 +117,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = Object.fromEntries(new FormData(form).entries());
 
             try {
-                await fetch(WEBHOOK_URL, {
+                const response = await fetch(WEBHOOK_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 statusEl.textContent = '¡Gracias! Te contactaremos muy pronto.';
                 statusEl.className = 'form-status success';
                 form.reset();
